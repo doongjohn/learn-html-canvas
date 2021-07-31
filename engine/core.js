@@ -3,7 +3,7 @@ class GameObject {
     this.x = 0; // world pos x
     this.y = 0; // world pos y
   }
-  
+
   getScreenPos() {
     return { x: center.x + this.x, y: center.y - this.y };
   }

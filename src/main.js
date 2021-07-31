@@ -1,7 +1,6 @@
 // init canvas
 const { canvas, gl } = initCanvas2D({
   resolution: { x: 1920, y: 1080 },
-  aspectRatio: { x: 16, y: 9 },
   clearColor: 'black'
 });
 

@@ -34,6 +34,17 @@ function randomPointFromScreenEdge() {
   return randomPointFromRectEdge(Screen.width, Screen.height, 0, 0);
 }
 
+function calcRatio(num1, num2) {
+  const result = { x: num1, y: num2 };
+  for (let num = num2; num > 1; --num) {
+    if ((result.x % num) == 0 && (result.y % num) == 0) {
+      result.x /= num;
+      result.y /= num;
+    }
+  }
+  return result;
+}
+
 function distance(vec) {
   return Math.sqrt(vec.x ** 2 + vec.y ** 2);
 }

@@ -2,7 +2,7 @@ const center = { x: 0, y: 0 };
 
 class Screen {
   static resolution = { x: 300, y: 300 };
-  static aspectRatio = { x: 1, y: 1 };
+  static aspectRatio = { x: 0, y: 0 };
   static scale = 1;
   static width;
   static height;
@@ -32,14 +32,15 @@ function canvasResize(canvas, gl) {
   center.y = Screen.height / 2;
 }
 
-function initCanvas2D({ resolution, aspectRatio, clearColor, } = {}) {
+function initCanvas2D({ resolution, clearColor, } = {}) {
   // init canvas and context
   const canvas = document.getElementById('canvas');
   const gl = canvas.getContext('2d');
 
   // set config
   Screen.resolution = resolution;
-  Screen.aspectRatio = aspectRatio;
+  Screen.aspectRatio = calcRatio(resolution.x, resolution.y);
+  console.log(Screen.aspectRatio);
   canvas.style.background = clearColor;
 
   // resize
