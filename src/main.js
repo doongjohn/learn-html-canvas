@@ -80,12 +80,32 @@ class Enemy extends GameObject {
 
 const player = new Player();
 
+let vec = {
+  x: 1,
+  y: 1
+}
+vec = normalize(vec);
+
+let angle = 0.1;
+
 // game loop
 gameLoop((dt) => {
   for (go of World.gameObjects) {
     go.move();
     go.draw();
   }
+
+  gl.strokeStyle = 'white';
+  gl.lineWidth = 5;
+  gl.beginPath();
+  gl.moveTo(center.x, center.y);
+  gl.lineTo(center.x + vec.x * 200, center.y + vec.y * 200);
+  gl.stroke();
+  let ca = Math.cos(angle);
+  let sa = Math.sin(angle);
+  vec.x = vec.x * ca - vec.y * sa;
+  vec.y = vec.x * sa + vec.y * ca;
+  vec = normalize(vec);
 });
 
 // spawn enemies

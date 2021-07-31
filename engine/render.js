@@ -40,7 +40,6 @@ function initCanvas2D({ resolution, clearColor, } = {}) {
   // set config
   Screen.resolution = resolution;
   Screen.aspectRatio = calcRatio(resolution.x, resolution.y);
-  console.log(Screen.aspectRatio);
   canvas.style.background = clearColor;
 
   // resize
